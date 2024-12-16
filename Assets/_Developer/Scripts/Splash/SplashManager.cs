@@ -48,14 +48,14 @@ public class SplashManager : MonoBehaviour
             Destroy(gameObject);
         AppData.winLossCoins = 0;
 
-#if UNITY_IOS
-        DeviceIDManager.deviceIDHandler += (string deviceid) => {
+//#if UNITY_IOS
+//        DeviceIDManager.deviceIDHandler += (string deviceid) => {
 
-           if (!string.IsNullOrEmpty(deviceid))            
-               PrefrenceManager.DeviceId = deviceid;
-        };
-        DeviceIDManager.GetDeviceID();
-#endif
+//           if (!string.IsNullOrEmpty(deviceid))            
+//               PrefrenceManager.DeviceId = deviceid;
+//        };
+//        DeviceIDManager.GetDeviceID();
+//#endif
 
         Application.targetFrameRate = 120;
     }
@@ -86,7 +86,7 @@ public class SplashManager : MonoBehaviour
         //StartCoroutine(IosNotificaitonController.instance.RequestAuthorization());
         startTimesec = Time.time;
 
-        AndroidNotificaitonController.instance.RequestAutorization();
+        //AndroidNotificaitonController.instance.RequestAutorization();
     }
 
     private IEnumerator FindServerWaitForLoadSplash()

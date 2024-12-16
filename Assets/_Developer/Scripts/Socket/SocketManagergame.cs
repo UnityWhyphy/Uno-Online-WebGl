@@ -152,18 +152,19 @@ public class SocketManagergame : MonoBehaviour
 
     public static string LOCALPORT;
     //find server calle
-    public static readonly string FINDAPI_URL = "http://192.168.0.203:4001/findserver";
+    //public static readonly string FINDAPI_URL = "https://uno.sixacegames.com:4001/findserver"; //live
+    public static readonly string FINDAPI_URL = "http://192.168.0.203:4001/findserver"; //local
     public static string SERVER_URL = "http://192.168.0.203:1302" /*+ LOCALPORT*/;
 
     public static readonly string SOCKET_URL = "/socket.io/";
-    public static bool local = true;
+    public static bool local = false; 
     public static string SOCKETURL;
     static List<string> LoginType = new List<string>();
 
     public IEnumerator FindServer_APICALL(string Url)
     {
         Url = local ? FINDAPI_URL : Url;
-        Logger.Print(TAG + " FindServer_APICALL called " + Url);
+        Logger.Print(TAG + " FindServer_APICALL called ===> " + Url);
 
         using (UnityWebRequest request = UnityWebRequest.Get(Url))
         {

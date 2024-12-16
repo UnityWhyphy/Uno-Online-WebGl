@@ -787,7 +787,7 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 0
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -921,11 +921,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 227d384a-c2dc-4fa1-9069-efea020942ed
+  cloudProjectId: be95b339-87a7-4b20-b866-f49d0cea42cd
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Uno Online
-  organizationId: unity_lodt6snpmp-rkq
+  organizationId: unity_85be13a5caeb0c5a9c70
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
