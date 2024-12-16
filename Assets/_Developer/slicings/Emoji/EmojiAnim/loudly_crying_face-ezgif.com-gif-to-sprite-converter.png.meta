@@ -1,0 +1,1209 @@
+fileFormatVersion: 2
+guid: 895f0d47dc66a4f51bdcfd4f73b584a8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1168
+        width: 94
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a86f42584304a31a390af75d4dc7d4
+      internalID: -109806979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1168
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a7d6d8775974de4a5a605986c854b3
+      internalID: 1935673092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1168
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7036b2808de4ef982f5fd770f3c333
+      internalID: -1315450132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1168
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33f78c6c7c5148aa8d6c675e0e7743d
+      internalID: -24793546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_4
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1168
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2835a5104f1884892b5472e1c8a4b9b7
+      internalID: -966505640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1040
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379817b1a879d4d259055b43694fbc0a
+      internalID: 1417254570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_6
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1040
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b593a8b2072984c9bbc07eae045f7fa0
+      internalID: -242704648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_7
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1040
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47799456dbb5490c8b4ac9579794cec
+      internalID: 1716526510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_8
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 1040
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd28b99d9d114d6cbb487def3b076cf
+      internalID: 1935056186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_9
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 1040
+        width: 99
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b531c31ae30b04d1f9275c81f4982973
+      internalID: -61539259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 912
+        width: 100
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50b50c069cba847d4abeaa2b41cac4ed
+      internalID: 2111614536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_11
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 912
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b014b99ce3144cf7aa2aab37451e3b6
+      internalID: 517604161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_12
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 912
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878615980fdc54bd69cb6836bbe4a49c
+      internalID: -1864621699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_13
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 912
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd925ab7765b40dcbcda1f4b6b2e477
+      internalID: 1243912745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_14
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 912
+        width: 100
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0ca84d9dc6f4452a64e24d84e3315f
+      internalID: -54775475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_15
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 784
+        width: 99
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42ee264e76b9b49bab6ac6e813558ba8
+      internalID: 364659704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_16
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 784
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c774b0477f0d4c2f88021fba4254ca5
+      internalID: 861450342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_17
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 784
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6061552581b034baa8a98f2299857b9a
+      internalID: -1134739619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_18
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 784
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f519051498741efb792206296a0471
+      internalID: -1202414394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_19
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 784
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca1d6fa78ac14953bf0163c49fb5a21
+      internalID: 1483505223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_20
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 656
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24351ec3b28d84d658fe10ac673e4d6f
+      internalID: 1347621678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_21
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 656
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 734fbfb0ca1e546c69d4c4ce0cdfe8e3
+      internalID: -282788215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_22
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 656
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8575aa2c3fd4e49b3a5d1fd71fdc3004
+      internalID: 86213069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_23
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 656
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb048e928384469aab3e1a14f21d237
+      internalID: 905174447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_24
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 656
+        width: 94
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa01f46b9d9942ebab00b6de75f9a5d
+      internalID: -56316349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 528
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b0289758deb43c582ba2791896bb93
+      internalID: -1363412127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_26
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 528
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f071da4f440c1480da4f1500ff507265
+      internalID: 2073772801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_27
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 528
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd38d6658f7d64ca2b32946be6b35190
+      internalID: -1556102768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_28
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 528
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7d7afcbb8f44b72938ea35acc3ef51
+      internalID: 1365358443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_29
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 528
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3d6a9ffa4be4c078364f184c096f61
+      internalID: 794307857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 400
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed86ca62abcb7416797d34d75ec49e26
+      internalID: -1179999494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_31
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 400
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637e1a25841a040cfbeb454e78901a0b
+      internalID: -1551140662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_32
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 400
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b11e76ec32a04da688f33f19ce42985
+      internalID: 2092575599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_33
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 400
+        width: 99
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc25c8a190e584a3ab3d4855a5f9f6c5
+      internalID: -1844899147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_34
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 400
+        width: 100
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cbadbd8af7a4fd9bf58d32314557fc
+      internalID: 859411933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_35
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 272
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62e43c60023a430fa1c18d914b3e448
+      internalID: -1600978979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_36
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 272
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de22d101c96704d9e88a01d13b0f1906
+      internalID: -1085259872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_37
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 272
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12142874a59664662977197c5cfe58a0
+      internalID: -2066925824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_38
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 272
+        width: 100
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38d9a9e66fa24de68f4ac7d6ffe88b2
+      internalID: -1744254622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_39
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 272
+        width: 99
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3459f30f3e504143a997ce50800a3a6
+      internalID: 321940398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_40
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 144
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d2f11e5de844fa393476cad081bc2b
+      internalID: 497699710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_41
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 144
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62dd561f05a884d0581ec063b22a85a8
+      internalID: 1259403884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_42
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 144
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4826176d5a36345a79266f8498345450
+      internalID: -1902625333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_43
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 144
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea3e83fe101e49da907cff3d5584d74
+      internalID: 505497102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_44
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 144
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5bc50d48463d473b9404754b0798612
+      internalID: 945241787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_45
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b887bed8adbd64d76b79f29165e360dd
+      internalID: -180964883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_46
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d44b19c5bb8348a48245c93546c7ba8
+      internalID: 1806003861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: loudly_crying_face-ezgif.com-gif-to-sprite-converter_47
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 16
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41a0071a14cc467588a9b4581756dc7
+      internalID: -644003492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_0: -109806979
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_1: 1935673092
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_10: 2111614536
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_11: 517604161
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_12: -1864621699
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_13: 1243912745
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_14: -54775475
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_15: 364659704
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_16: 861450342
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_17: -1134739619
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_18: -1202414394
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_19: 1483505223
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_2: -1315450132
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_20: 1347621678
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_21: -282788215
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_22: 86213069
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_23: 905174447
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_24: -56316349
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_25: -1363412127
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_26: 2073772801
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_27: -1556102768
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_28: 1365358443
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_29: 794307857
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_3: -24793546
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_30: -1179999494
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_31: -1551140662
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_32: 2092575599
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_33: -1844899147
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_34: 859411933
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_35: -1600978979
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_36: -1085259872
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_37: -2066925824
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_38: -1744254622
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_39: 321940398
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_4: -966505640
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_40: 497699710
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_41: 1259403884
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_42: -1902625333
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_43: 505497102
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_44: 945241787
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_45: -180964883
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_46: 1806003861
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_47: -644003492
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_5: 1417254570
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_6: -242704648
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_7: 1716526510
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_8: 1935056186
+      loudly_crying_face-ezgif.com-gif-to-sprite-converter_9: -61539259
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
