@@ -152,7 +152,6 @@ public class SocketManagergame : MonoBehaviour
 
     public static string LOCALPORT;
     //find server calle
-    //public static readonly string FINDAPI_URL = "https://uno.sixacegames.com:4001/findserver"; //live
     public static readonly string FINDAPI_URL = "http://192.168.0.203:4001/findserver"; //local
     public static string SERVER_URL = "http://192.168.0.203:1302" /*+ LOCALPORT*/;
 
@@ -288,9 +287,9 @@ public class SocketManagergame : MonoBehaviour
             SplashManager.instance.googleGoldTxt.text = AppData.numDifferentiation(AppData.FB_GOLD);
             SplashManager.instance.guestGoldTxt.text = AppData.numDifferentiation(AppData.GUEST_GOLD);
 
-            SplashManager.instance.BtnLin[0].SetActive(LoginType.Contains("guest"));
+            //SplashManager.instance.BtnLin[0].SetActive(LoginType.Contains("guest"));
             SplashManager.instance.BtnLin[1].SetActive(LoginType.Contains("fb"));
-            SplashManager.instance.BtnLin[2].SetActive(LoginType.Contains("google"));
+            //SplashManager.instance.BtnLin[2].SetActive(LoginType.Contains("google"));
         }
         AppData.rules = JsonConvert.DeserializeObject<List<float>>(jsonNode["config"]["RULES"].ToString());
     }
