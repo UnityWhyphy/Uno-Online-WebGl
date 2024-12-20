@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+//using System.Runtime.InteropServices;
 using DG.Tweening;
 using Facebook.Unity;
 using UnityEngine;
@@ -34,7 +35,6 @@ public class FacebookLogin : MonoBehaviour
         }
     }
 
-
     private void OnInitComplete()
     {
         Debug.Log("Facebook SDK Initialized");
@@ -53,6 +53,27 @@ public class FacebookLogin : MonoBehaviour
         Time.timeScale = !isGameShown ? 0 : 1;
     }
 
+    //private void Start()
+    //{
+    //    InitFacebook();
+    //}
+
+    //[DllImport("__Internal")]
+    //private static extern void InitializeFacebook();
+
+    //[DllImport("__Internal")]
+    //private static extern void sFacebookLogin();
+
+    //public void InitFacebook()
+    //{
+    //    InitializeFacebook();
+    //}
+
+    //public void LoginToFacebook()
+    //{
+    //    sFacebookLogin();
+    //}
+
     //private void SetInit()
     //{
     //    Logger.Print(TAG + " SetInit called " + FB.IsInitialized);
@@ -66,20 +87,22 @@ public class FacebookLogin : MonoBehaviour
 
     public void FaceBookLogin()
     {
-        //Logger.Print(TAG + " Login Button Click");
-        //AudioManager.instance.AudioPlay(AudioManager.instance.ButtonClickClip);
-        //var permission = new List<string>() { "public_profile", "email", "user_friends" };
-        //FB.LogInWithReadPermissions(permission, Authcallback);
+        Logger.Print(TAG + " Login Button Click");
+        AudioManager.instance.AudioPlay(AudioManager.instance.ButtonClickClip);
+        var permission = new List<string>() { "public_profile", "email", "user_friends" };
+        FB.LogInWithReadPermissions(permission, Authcallback);
     }
 
     private void Authcallback(ILoginResult result)
     {
+        Logger.Print(TAG + $"Authcallback Called || IsLoggedIn: {FB.IsLoggedIn}");
         if (FB.IsLoggedIn)
         {
+            //var Token = Facebook.Unity.AccessToken.CurrentAccessToken;
             var Token = Facebook.Unity.AccessToken.CurrentAccessToken;
 
-            Logger.Print(TAG + "atoken Token " + Token.TokenString);
-            Logger.Print(TAG + "atoken " + Token.UserId);
+            Logger.Print(TAG + "atoken Token ==" + Token.TokenString);
+            Logger.Print(TAG + "atoken = " + Token.UserId);
 
             foreach (string perm in AccessToken.CurrentAccessToken.Permissions)
             {
@@ -91,7 +114,10 @@ public class FacebookLogin : MonoBehaviour
 
             PrefrenceManager.FID = Token.UserId;
             PrefrenceManager.PP = url.url;
-            PrefrenceManager.FB_TOKEN = Token.TokenString;
+            //PrefrenceManager.FB_TOKEN = Token.TokenString;
+            PrefrenceManager.FB_TOKEN = "GG|454634746904400|VgJkqMcLE05wV5txr2tlJffa2Nw";
+
+            Logger.Print(TAG + $"OnLoginGetFBDataP Called || FID: {   PrefrenceManager.FID } | Token : {PrefrenceManager.FB_TOKEN }");
         }
 
         else
@@ -99,6 +125,12 @@ public class FacebookLogin : MonoBehaviour
             Logger.Print(TAG + "User cancel Login");
             Loading_screen.instance.ShowLoadingScreen(false);
         }
+    }
+
+    [System.Obsolete]
+    public void OnLoginGetFBData()
+    {
+        JavaScriptPlugin.I.LoginToFacebook();
     }
 
     public void FBlogout()

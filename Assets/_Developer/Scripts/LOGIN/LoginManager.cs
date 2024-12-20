@@ -45,7 +45,7 @@ public class LoginManager : MonoBehaviour
     public void OnClick_FaceBook()
     {
         AudioManager.instance.AudioPlay(AudioManager.instance.ButtonClickClip);
-        //FacebookLogin.instance.FaceBookLogin();
+        FacebookLogin.instance.FaceBookLogin();
         Loading_screen.instance.ShowLoadingScreen(true);
     }
 }

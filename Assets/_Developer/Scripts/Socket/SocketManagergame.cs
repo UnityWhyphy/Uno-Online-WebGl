@@ -387,34 +387,36 @@ public class SocketManagergame : MonoBehaviour
         if (SplashManager.instance != null)
         {
             SplashManager.instance?.splash1.SetActive(false);
-            if (PrefrenceManager.ULT.Equals(""))
-            {
-                SplashManager.instance.googleLoginImg.sprite = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) ?
-                    SplashManager.instance.googleLoginSprite : SplashManager.instance.appleLoginSprite;
-                SplashManager.instance.googleLoginTxt.text = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) ?
-                    "GOOGLE LOGIN" : "APPLE LOGIN";
+            //if (PrefrenceManager.ULT.Equals(""))
+            //{
+            //    SplashManager.instance.googleLoginImg.sprite = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) ?
+            //        SplashManager.instance.googleLoginSprite : SplashManager.instance.appleLoginSprite;
+            //    SplashManager.instance.googleLoginTxt.text = (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor) ?
+            //        "GOOGLE LOGIN" : "APPLE LOGIN";
 
-                SplashManager.instance.harizontalGrid.enabled = false;
+            //    SplashManager.instance.harizontalGrid.enabled = false;
 
-                Sequence seq = DOTween.Sequence();
-                seq.Append(SplashManager.instance.logoRect.DOAnchorPos(new Vector2(617.795f, -540), 0.5f).OnComplete(() =>
-                {
-                    SplashManager.instance.harizontalGrid.enabled = true;
-                    SplashManager.instance.loginScreen.SetActive(true);
-                    SplashManager.instance.loginPopup.anchoredPosition = new Vector2(800, SplashManager.instance.loginPopup.anchoredPosition.y);
-                }));
-                seq.AppendInterval(0.5f);
+            //    Sequence seq = DOTween.Sequence();
+            //    seq.Append(SplashManager.instance.logoRect.DOAnchorPos(new Vector2(617.795f, -540), 0.5f).OnComplete(() =>
+            //    {
+            //        SplashManager.instance.harizontalGrid.enabled = true;
+            //        SplashManager.instance.loginScreen.SetActive(true);
+            //        SplashManager.instance.loginPopup.anchoredPosition = new Vector2(800, SplashManager.instance.loginPopup.anchoredPosition.y);
+            //    }));
+            //    seq.AppendInterval(0.5f);
 
-                seq.Append(SplashManager.instance.loginPopup.DOAnchorPosX(0, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
-                {
+            //    seq.Append(SplashManager.instance.loginPopup.DOAnchorPosX(0, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
+            //    {
 
-                }).SetDelay(0.1f));
+            //    }).SetDelay(0.1f));
 
-                SplashManager.instance.emojiContent.SetActive(false);
-            }
-            else
+            //    SplashManager.instance.emojiContent.SetActive(false);
+            //}
+            //else
             {
                 SplashManager.instance.progressScreen.SetActive(true);
+                //FacebookLogin.instance.OnLoginGetFBData();
+                Logger.NormalLog($"=====================|| SEND SIGNUP ON REQ ||=================");
                 EventHandler.SendSignUp();
             }
         }

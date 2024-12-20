@@ -1,0 +1,45 @@
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '454634746904400',  // Replace with your Facebook App ID
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v16.0'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+    function fbLogin(callback) {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                // Success, user logged in
+                console.log('Logged in successfully');
+                callback(true, response);
+            } else {
+                // Failure, user did not log in
+                console.log('User cancelled login or did not fully authorize');
+                callback(false, null);
+            }
+        }, {scope: 'public_profile,email'});
+    }
+
+    function fbGetUserData(callback) {
+        FB.api('/me', {fields: 'name,email'}, function(response) {
+            if (response && !response.error) {
+                callback(response);
+            } else {
+                console.log('Error fetching user data');
+                callback(null);
+            }
+        });
+    }
+</script>
