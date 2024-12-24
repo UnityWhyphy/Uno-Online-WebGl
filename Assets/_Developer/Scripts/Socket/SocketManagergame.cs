@@ -230,9 +230,9 @@ public class SocketManagergame : MonoBehaviour
         string port = jsonNode["port"];
 
         //Locle
-        SOCKETURL = (local ? SERVER_URL : (proto + "://" + host + ":" + port)) + SOCKET_URL;
+        //SOCKETURL = (local ? SERVER_URL : (proto + "://" + host + ":" + port)) + SOCKET_URL;
         //Static
-        //SOCKETURL = (local ? SERVER_URL : (proto + "://" + host + ":9999")) + SOCKET_URL;//
+        SOCKETURL = (local ? SERVER_URL : (proto + "://" + host + ":9999")) + SOCKET_URL;//
 
 
         SocketManagergame.Instance.ConnectToServer(SOCKETURL);

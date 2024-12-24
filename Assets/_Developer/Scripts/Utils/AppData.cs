@@ -23,6 +23,7 @@ public static class AppData
 
     public static string PURCHASEDID = "";
     public static string NOTIiDS = "";
+    public static string HPGTokan = "";
     public static int IsExtra = 0;
     public static long TimeReset = 0;
     public static long ResetTimer = 0;

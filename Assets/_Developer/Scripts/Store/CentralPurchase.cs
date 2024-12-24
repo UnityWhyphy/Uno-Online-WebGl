@@ -30,11 +30,11 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
 
     //slot Offer
     public static List<SlotOffer> SlotOfferPack = new List<SlotOffer>();
-    public List<Product> SlotProduct = new List<Product>();
-    List<string> InAppSlot = new List<string>();
+    public List<FbProduct> SlotProduct = new List<FbProduct>();
+    [SerializeField] List<string> InAppSlot = new List<string>();
 
     public static List<SlotOffer> SlotOfferPackForGems = new List<SlotOffer>();
-    public List<Product> SlotProductGems = new List<Product>();
+    public List<FbProduct> SlotProductGems = new List<FbProduct>();
     List<string> InAppSlotGems = new List<string>();
 
     //bundle
@@ -42,7 +42,7 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
     public static StockTimeOffer TimerOffeNew, StockOfferNew;
 
     public static OfferData FirstTimeOffer, StarterBundlePack, MiddelBundle, Probundle;
-    public static Product FirstTimeProduct, StarterBundleProduct, MidBundleProduct, ProBundleProduct, TimerOfferProduct, StockOfferProduct;
+    public static FbProduct FirstTimeProduct, StarterBundleProduct, MidBundleProduct, ProBundleProduct, TimerOfferProduct, StockOfferProduct;
 
     [Obsolete]
     private void HandleSOD(JSONNode data)
@@ -101,6 +101,7 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
         }
 
         Logger.Print(TAG + " StockTimerForStock count " + StockTimerForStock.Count);
+
         for (int i = 0; i < StockTimerForStock.Count; i++)
         {
             switch (StockTimerForStock[i].offer)
@@ -115,6 +116,7 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
                     break;
             }
         }
+
 
         if (controller == null)
         {
@@ -143,7 +145,7 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
                 for (int j = 0; j < SlotOfferPack[i].offerPack.Count; j++)
                 {
                     InAppSlot.Add(SlotOfferPack[i].offerPack[j].inapp);
-                    builder.AddProduct(SlotOfferPack[i].offerPack[j].inapp, ProductType.Consumable);
+                    //builder.AddProduct(SlotOfferPack[i].offerPack[j].inapp, ProductType.Consumable);
                 }
             }
             for (int i = 0; i < SlotOfferPackForGems.Count; i++)
@@ -151,7 +153,7 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
                 for (int j = 0; j < SlotOfferPackForGems[i].offerPack.Count; j++)
                 {
                     InAppSlotGems.Add(SlotOfferPackForGems[i].offerPack[j].inapp);
-                    builder.AddProduct(SlotOfferPackForGems[i].offerPack[j].inapp, ProductType.Consumable);
+                    //builder.AddProduct(SlotOfferPackForGems[i].offerPack[j].inapp, ProductType.Consumable);
                 }
             }
 
@@ -200,28 +202,28 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
             {
                 Logger.Print(TAG + " Fetch Successfully SOD Again");
 
-                foreach (var product in controller.products.all)
+                for (int j = 0; j < StorePanel.Instance.fbProduct.Count; j++)
                 {
-                    if (FirstTimeOffer != null && product.definition.storeSpecificId.Equals(FirstTimeOffer.inapp))                    
-                        FirstTimeProduct = product;
-                    
-                    else if (StarterBundlePack != null && product.definition.storeSpecificId.Equals(StarterBundlePack.inapp))                    
-                        StarterBundleProduct = product;
-                    
-                    else if (MiddelBundle != null && product.definition.storeSpecificId.Equals(MiddelBundle.inapp))                    
-                        MidBundleProduct = product;
-                    
-                    else if (Probundle != null && product.definition.storeSpecificId.Equals(Probundle.inapp))                    
-                        ProBundleProduct = product;                    
+                    if (FirstTimeOffer != null && FirstTimeOffer.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                        FirstTimeProduct = StorePanel.Instance.fbProduct[j];
+
+                    else if (StarterBundlePack != null && StarterBundlePack.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                        StarterBundleProduct = StorePanel.Instance.fbProduct[j];
+
+                    else if (MiddelBundle != null && MiddelBundle.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                        MidBundleProduct = StorePanel.Instance.fbProduct[j];
+
+                    else if (Probundle != null && Probundle.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                        ProBundleProduct = StorePanel.Instance.fbProduct[j];
                 }
 
                 for (int i = 0; i < InAppSlot.Count; i++)
                 {
-                    foreach (var product in controller.products.all)
+                    foreach (var product in StorePanel.Instance.fbProduct)
                     {
-                        if (product.definition.storeSpecificId.Equals(InAppSlot[i]))
+                        if (product.productID.Equals(InAppSlot[i]))
                         {
-                            Logger.Print(TAG + " in-App " + InAppSlot[i] + " SKU " + product.definition.storeSpecificId + " i " + i);
+                            Logger.Print(TAG + $" Fresh ::: {product.productID} == {InAppSlot[i]} || price: {product.price}");
                             SlotProduct.Add(product);
                             break;
                         }
@@ -230,37 +232,38 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
 
                 for (int i = 0; i < InAppSlotGems.Count; i++)
                 {
-                    foreach (var product in controller.products.all)
+                    foreach (var product in StorePanel.Instance.fbProduct)
                     {
-                        if (product.definition.storeSpecificId.Equals(InAppSlotGems[i]))
+                        if (product.productID.Equals(InAppSlotGems[i]))
                         {
-                            Logger.Print(TAG + " in-App " + InAppSlotGems[i] + " SKU " + product.definition.storeSpecificId + " i " + i);
+                            Logger.Print(TAG + $" Fresh gem ::: {product.productID} == {InAppSlotGems[i]}");
                             SlotProductGems.Add(product);
                             break;
                         }
                     }
                 }
 
-                foreach (var product in controller.products.all)
+                for (int j = 0; j < StorePanel.Instance.fbProduct.Count; j++)
                 {
                     for (int i = 0; i < StockTimerForStock.Count; i++)
                     {
-                        if (product.definition.storeSpecificId.Equals(StockTimerForStock[i].inapp))
+                        if (StorePanel.Instance.fbProduct[j].productID.Equals(StockTimerForStock[i].inapp))
                         {
                             switch (StockTimerForStock[i].offer)
                             {
                                 case "Timer":
-                                    TimerOfferProduct = product;
+                                    TimerOfferProduct = StorePanel.Instance.fbProduct[j];
                                     break;
 
                                 case "Stock":
-                                    StockOfferProduct = product;
+                                    StockOfferProduct = StorePanel.Instance.fbProduct[j];
                                     break;
                             }
                             break;
                         }
                     }
                 }
+
 
                 DashboardManager.instance.DashOfferButtonStatus(FirstTimeOffer != null);
             };
@@ -286,36 +289,36 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
         this.controller = controller;
         provider = extensions;
 
-        foreach (var product in controller.products.all)
+
+        for (int j = 0; j < StorePanel.Instance.fbProduct.Count; j++)
         {
-            Logger.Print(TAG + " Product ID " + product.definition.storeSpecificId);
-            if (FirstTimeOffer != null && product.definition.storeSpecificId.Equals(FirstTimeOffer.inapp))            
-                FirstTimeProduct = product;
-            
-            else if (StarterBundlePack != null && product.definition.storeSpecificId.Equals(StarterBundlePack.inapp))            
-                StarterBundleProduct = product;
-            
-            else if (MiddelBundle != null && product.definition.storeSpecificId.Equals(MiddelBundle.inapp))            
-                MidBundleProduct = product;
-            
-            else if (Probundle != null && product.definition.storeSpecificId.Equals(Probundle.inapp))            
-                ProBundleProduct = product;            
+            if (FirstTimeOffer != null && FirstTimeOffer.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                FirstTimeProduct = StorePanel.Instance.fbProduct[j];
+
+            else if (StarterBundlePack != null && StarterBundlePack.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                StarterBundleProduct = StorePanel.Instance.fbProduct[j];
+
+            else if (MiddelBundle != null && MiddelBundle.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                MidBundleProduct = StorePanel.Instance.fbProduct[j];
+
+            else if (Probundle != null && Probundle.inapp.Equals(StorePanel.Instance.fbProduct[j].productID))
+                ProBundleProduct = StorePanel.Instance.fbProduct[j];
         }
 
-        foreach (var product in controller.products.all)
+        for (int j = 0; j < StorePanel.Instance.fbProduct.Count; j++)
         {
             for (int i = 0; i < StockTimerForStock.Count; i++)
             {
-                if (product.definition.storeSpecificId.Equals(StockTimerForStock[i].inapp))
+                if (StorePanel.Instance.fbProduct[j].productID.Equals(StockTimerForStock[i].inapp))
                 {
                     switch (StockTimerForStock[i].offer)
                     {
                         case "Timer":
-                            TimerOfferProduct = product;
+                            TimerOfferProduct = StorePanel.Instance.fbProduct[j];
                             break;
 
                         case "Stock":
-                            StockOfferProduct = product;
+                            StockOfferProduct = StorePanel.Instance.fbProduct[j];
                             break;
                     }
                     break;
@@ -323,12 +326,14 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
             }
         }
 
+        Logger.Print(TAG + $" OnInitialized called { InAppSlot.Count} | { InAppSlotGems.Count}| { StorePanel.Instance.fbProduct.Count}");
         for (int i = 0; i < InAppSlot.Count; i++)
         {
-            foreach (var product in controller.products.all)
+            foreach (var product in StorePanel.Instance.fbProduct)
             {
-                if (product.definition.storeSpecificId.Equals(InAppSlot[i]))
-                {                    
+                if (product.productID.Equals(InAppSlot[i]))
+                {
+                    Logger.Print(TAG + $" Fresh ::: {product.productID} == {InAppSlot[i]} || price: {product.price}");
                     SlotProduct.Add(product);
                     break;
                 }
@@ -337,10 +342,11 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
 
         for (int i = 0; i < InAppSlotGems.Count; i++)
         {
-            foreach (var product in controller.products.all)
+            foreach (var product in StorePanel.Instance.fbProduct)
             {
-                if (product.definition.storeSpecificId.Equals(InAppSlotGems[i]))
+                if (product.productID.Equals(InAppSlotGems[i]))
                 {
+                    Logger.Print(TAG + $" Fresh gem ::: {product.productID} == {InAppSlotGems[i]}");
                     SlotProductGems.Add(product);
                     break;
                 }
@@ -355,7 +361,7 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
         }
 
         isInitialized = true;
-        Logger.RecevideLog(TAG + " isInitialized  Sucsessfully Done : "+ isInitialized);
+        Logger.RecevideLog(TAG + " isInitialized  Sucsessfully Done : " + isInitialized);
         DashboardManager.instance.DashOfferButtonStatus(FirstTimeOffer != null);
     }
 
@@ -399,7 +405,7 @@ public class CentralPurchase : MonoBehaviour, IDetailedStoreListener
         //        StorePanel.Instance.calledEO++;
         //}
         //else
-            AllCommonGameDialog.instance.SetJustOkDialogData(MessageClass.alert, StorePanel.Instance.msg2);
+        AllCommonGameDialog.instance.SetJustOkDialogData(MessageClass.alert, StorePanel.Instance.msg2);
     }
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs e)

@@ -518,8 +518,8 @@ public class Notification : CentralPurchase
                 currentNoti.transform.GetChild(2).GetChild(1).GetChild(1).gameObject.SetActive(false);
                 currentNoti.transform.GetChild(2).GetChild(1).GetChild(2).gameObject.SetActive(true);
                 currentNoti.transform.GetChild(2).GetChild(1).GetChild(2).GetChild(0).GetComponent<Text>().text =
-                    (isTimerOffer ? (CentralPurchase.TimerOfferProduct == null ? "$ " + CentralPurchase.StockTimerForStock[i].price : CentralPurchase.TimerOfferProduct.metadata.localizedPriceString)
-                    : (CentralPurchase.StockOfferProduct == null ? "$ " + CentralPurchase.StockTimerForStock[i].price : CentralPurchase.StockOfferProduct.metadata.localizedPriceString));
+                    (isTimerOffer ? (CentralPurchase.TimerOfferProduct == null ? "$ " + CentralPurchase.StockTimerForStock[i].price : CentralPurchase.TimerOfferProduct.price)
+                    : (CentralPurchase.StockOfferProduct == null ? "$ " + CentralPurchase.StockTimerForStock[i].price : CentralPurchase.StockOfferProduct.price));
 
                 currentNoti.transform.GetChild(2).GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
                 currentNoti.transform.GetChild(2).GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
@@ -531,7 +531,8 @@ public class Notification : CentralPurchase
 
                         AppData.NOTIiDS = isTimerOffer ? CentralPurchase.TimerOffeNew._id : CentralPurchase.StockOfferNew._id;
 
-                        CentralPurchase.instance.OnPurchaseClicked(isTimerOffer ? CentralPurchase.TimerOffeNew.inapp : CentralPurchase.StockOfferNew.inapp);
+                        //CentralPurchase.instance.OnPurchaseClicked(isTimerOffer ? CentralPurchase.TimerOffeNew.inapp : CentralPurchase.StockOfferNew.inapp);
+                        FB_IAP.instance.InitiatePurchase(isTimerOffer ? CentralPurchase.TimerOffeNew.inapp : CentralPurchase.StockOfferNew.inapp);
                     }
                 });
 

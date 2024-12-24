@@ -127,12 +127,6 @@ public class FacebookLogin : MonoBehaviour
         }
     }
 
-    [System.Obsolete]
-    public void OnLoginGetFBData()
-    {
-        JavaScriptPlugin.I.LoginToFacebook();
-    }
-
     public void FBlogout()
     {
         FB.LogOut();

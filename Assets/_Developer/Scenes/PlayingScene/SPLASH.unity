@@ -1836,7 +1836,6 @@ GameObject:
   - component: {fileID: 66208689}
   - component: {fileID: 66208691}
   - component: {fileID: 66208692}
-  - component: {fileID: 66208693}
   m_Layer: 0
   m_Name: C#_SOCKET_CONSTANTS (DDOL)
   m_TagString: Untagged
@@ -1883,18 +1882,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 763002b1559624e8d96cf92fa027e180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &66208693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66208688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a52b9418aa60408197c73e33f9f0bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &66825955
@@ -13279,7 +13266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 0}
   m_SizeDelta: {x: 0, y: 650.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &754094596
@@ -17878,6 +17865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010232046}
   - component: {fileID: 1010232047}
+  - component: {fileID: 1010232048}
   m_Layer: 0
   m_Name: FBGetdat_refrance
   m_TagString: Untagged
@@ -17910,6 +17898,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4dcd9c7294184762b8f9301e17a766a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1010232048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010232044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179183b73119a4b4cb75c9c291d06201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1012327645 stripped

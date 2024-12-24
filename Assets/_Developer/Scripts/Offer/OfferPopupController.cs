@@ -80,7 +80,7 @@ public class OfferPopupController : CentralPurchase
     {
         int no = 0;
         OfferData offerData;
-        Product productData;
+        FbProduct productData;
         Logger.Print($"{TAG2} | Offer Check {long.Parse(PrefrenceManager.GOLD)} || currantLvl = {AppData.currantLvl} || FirstTimeOffer isNULL = {CentralPurchase.FirstTimeOffer == null}");
 
         if (AppData.currantLvl < 5 || CentralPurchase.FirstTimeOffer != null) return;
@@ -120,7 +120,7 @@ public class OfferPopupController : CentralPurchase
         b_rewardCoinValueTxt.text = AppData.numDifferentiation(offerData.gold);
         b_rewardGemsValueTxt.text = AppData.numDifferentiation(offerData.free_gems);
         b_discountValueTxt.text = "$ " + offerData.actualprice + "";
-        b_priceAmountTxt.text = (productData == null) ? "$ " + offerData.actualprice : productData.metadata.localizedPriceString;
+        b_priceAmountTxt.text = (productData == null) ? "$ " + offerData.actualprice : productData.price;
         b_rewardOfferTxt.text = offerData.txt;
 
         slot_Banner_PopUp.bundleBgImg.sprite = bundleBannerBg[no];
@@ -138,17 +138,20 @@ public class OfferPopupController : CentralPurchase
             case 1:
                 Logger.Print($"First.inapp :: {CentralPurchase.StarterBundlePack?.inapp}");
                 AppData.PURCHASEDID = StarterBundlePack?._id;
-                CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.StarterBundlePack?.inapp);
+                FB_IAP.instance.InitiatePurchase(CentralPurchase.StarterBundlePack?.inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.StarterBundlePack?.inapp);
                 break;
             case 2:
                 Logger.Print($"Sec.inapp :: {CentralPurchase.MiddelBundle?.inapp}");
                 AppData.PURCHASEDID = CentralPurchase.MiddelBundle?._id;
-                CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.MiddelBundle?.inapp);
+                FB_IAP.instance.InitiatePurchase(CentralPurchase.MiddelBundle?.inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.MiddelBundle?.inapp);
                 break;
             case 3:
                 Logger.Print($"Third.inapp :: {CentralPurchase.Probundle?.inapp}");
                 AppData.PURCHASEDID = CentralPurchase.Probundle?._id;
-                CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.Probundle?.inapp);
+                FB_IAP.instance.InitiatePurchase(CentralPurchase.Probundle?.inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.Probundle?.inapp);
                 break;
         }
     }
@@ -176,7 +179,7 @@ public class OfferPopupController : CentralPurchase
         {
             if (gold <= CentralPurchase.SlotOfferPack[i].max)
             {
-                Product product = null;
+                FbProduct product = null;
                 if (i == 0) product = CentralPurchase.StarterBundleProduct;
                 if (i == 1) product = CentralPurchase.MidBundleProduct;
                 if (i == 2) product = CentralPurchase.ProBundleProduct;
@@ -194,12 +197,15 @@ public class OfferPopupController : CentralPurchase
         if (gems < CentralPurchase.SlotOfferPackForGems[0].max)
         {
             SetSlotOfferData(CentralPurchase.SlotOfferPackForGems[0].offerPack[2], CentralPurchase.SlotOfferPackForGems[0].offerPack, true, CentralPurchase.ProBundleProduct);
+            slot1.myButton.onClick.RemoveAllListeners();
+            slot2.myButton.onClick.RemoveAllListeners();
+
             slot1.myButton.onClick.AddListener(() => OnClickSlot(3));
             slot2.myButton.onClick.AddListener(() => OnClickSlot(4));
         }
     }
 
-    internal void SetSlotOfferData(OfferData offerData, List<OfferData> slotOffer, bool isGems, Product bundleProduct)
+    internal void SetSlotOfferData(OfferData offerData, List<OfferData> slotOffer, bool isGems, FbProduct bundleProduct)
     {
         if (Enum.TryParse(offerData.inapp, true, out OfferBundle offerBundle))
         {
@@ -233,12 +239,15 @@ public class OfferPopupController : CentralPurchase
             case 1:
                 Logger.Print($"slotOffer Gold.inapp 1 :: {CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[0].inapp}");
                 AppData.PURCHASEDID = CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[0]._id;
-                CentralPurchase.instance.OnPurchaseClicked(SlotOfferPack[goldSaveIndex].offerPack[0].inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[0].inapp);
+                FB_IAP.instance.InitiatePurchase(CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[0].inapp);
+
                 break;
             case 2:
                 Logger.Print($"slotOffer Gold.inapp 2 :: {CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[1].inapp}");
                 AppData.PURCHASEDID = CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[1]._id;
-                CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[1].inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[1].inapp);
+                FB_IAP.instance.InitiatePurchase(CentralPurchase.SlotOfferPack[goldSaveIndex].offerPack[1].inapp);
                 break;
 
             // FOR GEMS
@@ -246,12 +255,14 @@ public class OfferPopupController : CentralPurchase
             case 3:
                 Logger.Print($"slotOffer GEMS.inapp 3 :: {CentralPurchase.SlotOfferPackForGems[0].offerPack[0].inapp}");
                 AppData.PURCHASEDID = CentralPurchase.SlotOfferPackForGems[0].offerPack[0]._id;
-                CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.SlotOfferPackForGems[0].offerPack[0].inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.SlotOfferPackForGems[0].offerPack[0].inapp);
+                FB_IAP.instance.InitiatePurchase(CentralPurchase.SlotOfferPackForGems[0].offerPack[0].inapp);
                 break;
             case 4:
                 Logger.Print($"slotOffer GEMS.inapp 4 :: {CentralPurchase.SlotOfferPackForGems[0].offerPack[1].inapp}");
                 AppData.PURCHASEDID = CentralPurchase.SlotOfferPackForGems[0].offerPack[1]._id;
-                CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.SlotOfferPackForGems[0].offerPack[1].inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(CentralPurchase.SlotOfferPackForGems[0].offerPack[1].inapp);
+                FB_IAP.instance.InitiatePurchase(CentralPurchase.SlotOfferPackForGems[0].offerPack[1].inapp);
                 break;
 
             // FOR Bundle CLICK
@@ -260,23 +271,39 @@ public class OfferPopupController : CentralPurchase
         }
     }
 
-    void SetResData(OfferData offerData, List<OfferData> slotOffer, bool isGems, List<Product> product, Product bundleProduct)
+    void SetResData(OfferData offerData, List<OfferData> slotOffer, bool isGems, List<FbProduct> product, FbProduct bundleProduct)
     {
         rewardCoinValueTxt.text = AppData.numDifferentiation(offerData.gold);
         discountValueTxt.text = "$ " + offerData.actualprice + "";
         rewardOfferTxt.text = " " + offerData.txt;
-        priceAmountTxt.text = (bundleProduct == null) ? "$ " + offerData.price : bundleProduct.metadata.localizedPriceString;
+        priceAmountTxt.text = (bundleProduct == null) ? "$ " + offerData.price : bundleProduct.price;
 
         try
         {
             // Slot
             slot1.discountAmountTxt.text = "$ " + slotOffer[0].actualprice + "";
             slot1.discounOffertTxt.text = " " + slotOffer[0].txt;
-            slot1.priceAmountTxt.text = (product[0] == null) ? "$ " + slotOffer[0].price : product[0].metadata.localizedPriceString;
+
+            Logger.Print($"Zero inapp : {slotOffer[0].inapp} | one: {slotOffer[1].inapp}");
+
+            for (int i = 0; i < StorePanel.Instance.fbProduct.Count; i++)            
+                if (slotOffer[0].inapp.Equals(StorePanel.Instance.fbProduct[i].productID))
+                {
+                    slot1.priceAmountTxt.text = StorePanel.Instance.fbProduct[i].price;
+                    break;
+                }
+            
+            for (int i = 0; i < StorePanel.Instance.fbProduct.Count; i++)
+                if (slotOffer[1].inapp.Equals(StorePanel.Instance.fbProduct[i].productID))
+                {
+                    slot2.priceAmountTxt.text = StorePanel.Instance.fbProduct[i].price;
+                    break;
+                }
+            //slot1.priceAmountTxt.text = (product[0] == null) ? "$ " + slotOffer[0].price : product[0].price;
 
             slot2.discountAmountTxt.text = "$ " + slotOffer[1].actualprice + "";
             slot2.discounOffertTxt.text = " " + slotOffer[1].txt;
-            slot2.priceAmountTxt.text = (product[1] == null) ? "$ " + slotOffer[1].price : product[1].metadata.localizedPriceString;
+            //slot2.priceAmountTxt.text = (product[1] == null) ? "$ " + slotOffer[1].price : product[1].price;
 
             if (isGems)
             {
@@ -297,8 +324,13 @@ public class OfferPopupController : CentralPurchase
                 slot2.reward_Slot_Coin.sprite = slotCenterItems[1];
                 slot1._itemImg.sprite = slotCenterItems[4];
                 slot2._itemImg.sprite = slotCenterItems[4];
+
+                slot1.myButton.onClick.RemoveAllListeners();
+                slot2.myButton.onClick.RemoveAllListeners();
+
                 slot1.myButton.onClick.AddListener(() => OnClickSlot(1));
                 slot2.myButton.onClick.AddListener(() => OnClickSlot(2));
+
                 storeGoButton.onClick.RemoveAllListeners();
                 storeGoButton.onClick.AddListener(() => DashboardManager.instance.TopCenterClick(1));
             }
@@ -313,7 +345,7 @@ public class OfferPopupController : CentralPurchase
             Loading_screen.instance.SendExe("OfferPopupController", "SetResData", $"{objects}", ex);
             Logger.Print($"Ex on SetResData : {ex}");
         }
-   
+
 
         StorePanel.Instance.OnClick_StorePanel(26);
     }

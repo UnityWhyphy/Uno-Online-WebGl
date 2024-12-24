@@ -243,7 +243,7 @@ public static class EventHandler
             ["aVersion"] = Application.platform == RuntimePlatform.Android ? AppData.AppVersionAndroid : AppData.AppVersionIOS,
             ["pn"] = PrefrenceManager.PN,
             ["pp"] = PrefrenceManager.PP,
-            ["det"] = PrefrenceManager.DET,
+            //["det"] = PrefrenceManager.DET,
             ["cc"] = PrefrenceManager.CC,
             ["rfc"] = PrefrenceManager.RFC,
             //["isnewVersion"] = 1,//1 Lock, 0 Unlock
@@ -265,8 +265,8 @@ public static class EventHandler
             ["Community_Join"] = PrefrenceManager.COMMUNITY_JOIN,
             ["Full_Ads"] = PrefrenceManager.FULL_ADS,
             ["rflcode"] = AppData.REFRELCODEOTHERUSER,
-            ["det"] = (Application.platform == RuntimePlatform.Android) ? "android" : "ios",
-            //["det"] = "ios",
+            //["det"] = (Application.platform == RuntimePlatform.Android) ? "android" : "ios",
+            ["det"] = "WEBFB",
             ["theme"] = PrefrenceManager.Themes
         };
 

@@ -102,6 +102,18 @@ public class StockTimeOffer
 }
 
 [System.Serializable]
+public class FbProduct
+{
+    public string description;
+    public string imageURI;
+    public string price;
+    public double priceAmount;
+    public string priceCurrencyCode;
+    public string productID;
+    public string title;
+}
+
+[System.Serializable]
 public class FGSstoreData
 {
     public string _id;

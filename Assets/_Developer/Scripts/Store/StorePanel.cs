@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using SimpleJSON;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -85,9 +86,9 @@ public class StorePanel : CentralPurchase
     public static List<FGSstoreData> GemsStoreData = new List<FGSstoreData>();
     public static List<FGSstoreData> GoldStoreData = new List<FGSstoreData>();
 
-    Product GoldOfferDetail, GemsOfferDetail;
-    List<Product> GoldSKUDetails = new List<Product>();
-    List<Product> GemsSKUDetails = new List<Product>();
+    FbProduct GoldOfferDetail, GemsOfferDetail;
+    List<FbProduct> GoldSKUDetails = new List<FbProduct>();
+    List<FbProduct> GemsSKUDetails = new List<FbProduct>();
     public int type = 0;
     int currentIndex = -1;
 
@@ -140,6 +141,12 @@ public class StorePanel : CentralPurchase
         if (slot_Panel.gameObject.activeInHierarchy) OnClick_StorePanel(25);
 
         CommanAnimations.instance.PopUpAnimation(purchansePanel, purchasePanelBG, purchasePanelPopUp, Vector3.one, true);
+
+        Logger.Print($"{TAG2} | ExternalCall consumePurchaseAsync | Token: {AppData.HPGTokan}");
+#if UNITY_WEBGL && !UNITY_EDITOR
+            Application.ExternalCall("consumePurchaseAsync", AppData.HPGTokan);
+#endif
+
         PurchaseData purchase = JsonConvert.DeserializeObject<PurchaseData>(data.ToString());
         Logger.Print(tag + " InitGold " + purchase.initgold + " free gold " + purchase.free_gold + " totalgems " + purchase.totalgems);
 
@@ -220,6 +227,7 @@ public class StorePanel : CentralPurchase
     }
 
     public List<StoreData> DealOffer = new List<StoreData>();
+    public List<FbProduct> fbProduct = new List<FbProduct>();
     int showOfferCounter = 0;
     [Obsolete]
     private void HandleExitOffer(JSONNode data)
@@ -306,70 +314,62 @@ public class StorePanel : CentralPurchase
 
         GoldStoreData = JsonConvert.DeserializeObject<List<FGSstoreData>>(data["goldstore"].ToString());
         Logger.RecevideLog($"GoldStoreData = {GoldStoreData.Count} || ");
-        //GoldStore data
-        for (int i = 0; i < GoldStoreData.Count; i++)
+
+        if (GoldSKUDetails.Count == 0)
         {
-            additional.Add(new ProductDefinition(GoldStoreData[i].inapp, ProductType.Consumable));
+            for (int i = 0; i < GoldStoreData.Count; i++)
+            {
+                //prise set karvani che
+                for (int j = 0; j < fbProduct.Count; j++)
+                {
+                    Logger.Print($" $$$$$$======> Check: N = { fbProduct[j].productID } || N2: {GoldStoreData[i].inapp}");
+                    if (GoldStoreData[i].inapp.Equals(fbProduct[j].productID))
+                    {
+                        GoldSKUDetails.Add(fbProduct[j]);
+                        break;
+                    }
+                }
+            }
         }
 
         GemsStoreData = JsonConvert.DeserializeObject<List<FGSstoreData>>(data["gemsstore"].ToString());
-        //GemsStore data
-        for (int i = 0; i < GemsStoreData.Count; i++)
+        if (GemsSKUDetails.Count == 0)
         {
-            additional.Add(new ProductDefinition(GemsStoreData[i].inapp, ProductType.Consumable));
+            for (int i = 0; i < GemsStoreData.Count; i++)
+            {
+                //prise set karvani che
+                for (int j = 0; j < fbProduct.Count; j++)
+                {
+                    Logger.Print($" $$$$$$======> Check: N = { fbProduct[j].productID } || N2: {GemsStoreData[i].inapp}");
+                    if (GemsStoreData[i].inapp.Equals(fbProduct[j].productID))
+                    {
+                        GemsSKUDetails.Add(fbProduct[j]);
+                        break;
+                    }
+                }
+            }
         }
+
+        Logger.Print($"{TAG2} GoldStore Sku {GoldSKUDetails.Count} Gems Sku Detail {GemsSKUDetails.Count}");
 
         GoldOffer = JsonConvert.DeserializeObject<FGSstoreData>(data["promo"].ToString());
         GemsOffer = JsonConvert.DeserializeObject<FGSstoreData>(data["gemspromo"].ToString());
 
-        if (GoldOffer.inapp != null)
-            additional.Add(new ProductDefinition(GoldOffer.inapp, ProductType.Consumable));
+        if (GoldOfferDetail == null || GemsOfferDetail == null)
+        {
+            for (int j = 0; j < fbProduct.Count; j++)
+            {
+                if (GoldOffer.inapp.Equals(fbProduct[j].productID))
+                    GoldOfferDetail = fbProduct[j];
 
-        if (GemsOffer.inapp != null)
-            additional.Add(new ProductDefinition(GemsOffer.inapp, ProductType.Consumable));
+                if (GemsOffer.inapp.Equals(fbProduct[j].productID))
+                    GemsOfferDetail = fbProduct[j];
+            }
+        }
 
         Settap(type);
-        if (CentralPurchase.instance.controller != null)
-        {
-            Action onSuccess = () =>
-            {
-                for (int i = 0; i < GoldStoreData.Count; i++)
-                {
-                    foreach (var product in CentralPurchase.instance.controller.products.all)
-                    {
-                        if (GoldOfferDetail == null && GoldOffer.inapp.Equals(product.definition.storeSpecificId))
-                            GoldOfferDetail = product;
 
-                        else if (GemsOfferDetail == null && GemsOffer.inapp.Equals(product.definition.storeSpecificId))
-                            GemsOfferDetail = product;
-
-                        if (GoldStoreData[i].inapp.Equals(product.definition.storeSpecificId) && GoldSKUDetails.Count == i)
-                            GoldSKUDetails.Add(product);
-
-                        else if (GemsStoreData[i].inapp.Equals(product.definition.storeSpecificId) && GemsSKUDetails.Count == i)
-                            GemsSKUDetails.Add(product);
-                    }
-                }
-
-                Logger.Print(TAG2 + " Fetch Successful");
-                Loading_screen.instance.ShowLoadingScreen(false);
-                Settap(type);
-            };
-
-            Action<InitializationFailureReason> onFailure = (InitializationFailureReason i) =>
-            {
-                Logger.Print(TAG2 + " Fetching failed GSEO Offer reason: " + i);
-                Loading_screen.instance.ShowLoadingScreen(false);
-                AllCommonGameDialog.instance.SetJustOkDialogData("Alert", msg1);
-            };
-
-            CentralPurchase.instance.controller.FetchAdditionalProducts(additional, onSuccess, onFailure);
-        }
-        else
-        {
-            Logger.Print(TAG2 + " Controller null male che");
-            Loading_screen.instance.ShowLoadingScreen(false);
-        }
+        Loading_screen.instance.LoaderPanel.SetActive(false);
     }
 
     bool isAnyThinkPurchase = false;
@@ -390,8 +390,10 @@ public class StorePanel : CentralPurchase
                 Loading_screen.instance.ShowLoadingScreen(true, "Purchase is Processing...");
                 AppData.NOTIiDS = "";
                 if (GoldStoreData[i] == null) return;
+                //CentralPurchase.instance.OnPurchaseClicked(type == 0 ? GoldStoreData[i].inapp : GemsStoreData[i].inapp);
                 AppData.PURCHASEDID = type == 0 ? GoldStoreData[i]._id : GemsStoreData[i]._id;
-                CentralPurchase.instance.OnPurchaseClicked(type == 0 ? GoldStoreData[i].inapp : GemsStoreData[i].inapp);
+                FB_IAP.instance.InitiatePurchase(type == 0 ? GoldStoreData[i].inapp : GemsStoreData[i].inapp);
+                //FB_IAP.instance.InitiatePurchase("goldpack6");
                 break;
 
             case 6://close Store
@@ -434,7 +436,8 @@ public class StorePanel : CentralPurchase
                 if (DealOffer[i - 11] != null)
                 {
                     AppData.PURCHASEDID = DealOffer[i - 11]._id;
-                    CentralPurchase.instance.OnPurchaseClicked(DealOffer[i - 11].inapp);
+                    FB_IAP.instance.InitiatePurchase(DealOffer[i - 11].inapp);
+                    //CentralPurchase.instance.OnPurchaseClicked(DealOffer[i - 11].inapp);
                 }
                 break;
 
@@ -448,7 +451,8 @@ public class StorePanel : CentralPurchase
                 Loading_screen.instance.ShowLoadingScreen(true, "Purchase is Processing...");
                 if (GoldOffer == null) return;
                 AppData.PURCHASEDID = type == 0 ? GoldOffer._id : GemsOffer._id;
-                CentralPurchase.instance.OnPurchaseClicked(type == 0 ? GoldOffer.inapp : GemsOffer.inapp);
+                FB_IAP.instance.InitiatePurchase(type == 0 ? GoldOffer.inapp : GemsOffer.inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(type == 0 ? GoldOffer.inapp : GemsOffer.inapp);
                 break;
 
             case 18://purchase collect
@@ -467,7 +471,8 @@ public class StorePanel : CentralPurchase
                 Logger.Print($"TimerOffeNew.inapp :: {TimerOffeNew.inapp}");
                 AppData.PURCHASEDID = TimerOffeNew.pid;
                 AppData.NOTIiDS = TimerOffeNew._id;
-                CentralPurchase.instance.OnPurchaseClicked(TimerOffeNew.inapp);
+                FB_IAP.instance.InitiatePurchase(TimerOffeNew.inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(TimerOffeNew.inapp);
                 break;
 
             case 21: //First Welcome Time Offer Dialog Purchase Click
@@ -475,7 +480,8 @@ public class StorePanel : CentralPurchase
                 if (FirstTimeOffer == null) return;
                 Logger.Print($"FirstTimeOffer.inapp :: {FirstTimeOffer.inapp}");
                 AppData.PURCHASEDID = FirstTimeOffer._id;
-                CentralPurchase.instance.OnPurchaseClicked(FirstTimeOffer.inapp);
+                FB_IAP.instance.InitiatePurchase(FirstTimeOffer.inapp);
+                //CentralPurchase.instance.OnPurchaseClicked(FirstTimeOffer.inapp);
                 break;
 
             case 24: //Limited Stock Offer Dialog Purchase Click
@@ -491,7 +497,8 @@ public class StorePanel : CentralPurchase
                 AppData.PURCHASEDID = StockOfferNew.pid;
                 Logger.Print($"StockOfferNew.inapp :: {StockOfferNew._id}");
                 AppData.NOTIiDS = StockOfferNew._id;
-                CentralPurchase.instance.OnPurchaseClicked((StockOfferNew.inapp));
+                FB_IAP.instance.InitiatePurchase((StockOfferNew.inapp));
+                //CentralPurchase.instance.OnPurchaseClicked((StockOfferNew.inapp));
 
                 break;
 
@@ -540,7 +547,7 @@ public class StorePanel : CentralPurchase
         {
             for (int i = 0; i < GoldSKUDetails.Count; i++)
             {
-                BuyText[i].text = (GoldSKUDetails[i] == null) ? "$ " + GoldStoreData[i].price : GoldSKUDetails[i].metadata.localizedPriceString;
+                BuyText[i].text = tap == 0 ? GoldSKUDetails[i].price: GemsSKUDetails[i].price;
                 GoldImg[i].sprite = tap == 0 ? goldSprites[i] : gemsSprites[i];
                 GoldValue[i].text = tap == 0 ? AppData.numDifferentiation(GoldStoreData[i].gold) : AppData.numDifferentiation(GemsStoreData[i].gems);
                 RemoveAdsTag[i].SetActive(tap == 0 ? GoldStoreData[i].isadsremove == 1 : GemsStoreData[i].isadsremove == 1);
@@ -587,7 +594,7 @@ public class StorePanel : CentralPurchase
         sLTO_TotalCoinVal.text = AppData.numDifferentiation(TimerOffeNew.gold);
         sLTO_ActualPriceVal.text = "$ " + TimerOffeNew.actualprice;
 
-        sLTO_Price.text = (CentralPurchase.TimerOfferProduct == null) ? "$ " + CentralPurchase.TimerOffeNew.price : CentralPurchase.TimerOfferProduct.metadata.localizedPriceString;
+        sLTO_Price.text = (CentralPurchase.TimerOfferProduct == null) ? "$ " + CentralPurchase.TimerOffeNew.price : CentralPurchase.TimerOfferProduct.price;
     }
 
     public void SetData_OfferTap_WelcomeOffer()
@@ -599,7 +606,14 @@ public class StorePanel : CentralPurchase
         //sWO_PriceTxt.text = "$ " + FirstTimeOffer.price;
 
         Logger.Print($"==== >>   SetData_OfferTap_WelcomeOffer  << ======== c(welcome)");
-        sWO_PriceTxt.text = (CentralPurchase.TimerOfferProduct == null) ? "$ " + CentralPurchase.FirstTimeOffer.price : CentralPurchase.FirstTimeProduct.metadata.localizedPriceString;
+
+        //var product = fbProduct.FirstOrDefault(p => p.productID.Equals(CentralPurchase.FirstTimeOffer.inapp));
+
+        //if (product != null)
+        //{
+        //    sWO_PriceTxt.text = product.price;
+        //}
+        sWO_PriceTxt.text = (CentralPurchase.FirstTimeProduct == null) ? "$ " + CentralPurchase.FirstTimeOffer.price : CentralPurchase.FirstTimeProduct.price;
     }
 
     private void SetData_OfferTap_LimitedStockOffer()
@@ -611,8 +625,14 @@ public class StorePanel : CentralPurchase
         sLSO_DisTxt.text = StockOfferNew.txt;
         sLSO_TotalCoinTxt.text = AppData.numDifferentiation(StockOfferNew.gold);
         sLSO_ActualPriceTxt.text = "$ " + StockOfferNew.actualprice;
-        //sLSO_PriceTxt.text = "$ " + StockOfferNew.price;
-        sLSO_PriceTxt.text = (CentralPurchase.StockOfferProduct == null) ? "$ " + CentralPurchase.StockOfferNew.price : CentralPurchase.StockOfferProduct.metadata.localizedPriceString;
+
+        //var product = fbProduct.FirstOrDefault(p => p.productID.Equals(CentralPurchase.FirstTimeOffer.inapp));
+
+        //if (product != null)
+        //{
+        //    sWO_PriceTxt.text = product.price;
+        //}
+        sLSO_PriceTxt.text = (CentralPurchase.StockOfferProduct == null) ? "$ " + CentralPurchase.StockOfferNew.price : CentralPurchase.StockOfferProduct.price;
     }
 
     public TextMeshProUGUI timerNotiText = null;
@@ -642,7 +662,7 @@ public class StorePanel : CentralPurchase
         lO_DiscTxt.text = CentralPurchase.TimerOffeNew.txt;
         lO_CoinVal.text = AppData.numDifferentiation(CentralPurchase.TimerOffeNew.gold);
         lO_ActualPriceVal.text = "$ " + CentralPurchase.TimerOffeNew.actualprice;
-        lO_Price.text = CentralPurchase.TimerOfferProduct == null ? ("$ " + CentralPurchase.TimerOffeNew.price) : CentralPurchase.TimerOfferProduct.metadata.localizedPriceString;
+        lO_Price.text = CentralPurchase.TimerOfferProduct == null ? ("$ " + CentralPurchase.TimerOffeNew.price) : CentralPurchase.TimerOfferProduct.price;
         CommanAnimations.instance.PopUpAnimation(lO_Panel, lO_Bg, lO_PopUp, Vector3.one, true);
     }
 
@@ -657,7 +677,7 @@ public class StorePanel : CentralPurchase
         lSO_DisTxt.text = CentralPurchase.StockOfferNew.txt;
         lSO_TotalCoinTxt.text = AppData.numDifferentiation(CentralPurchase.StockOfferNew.gold);
         lSO_ActualPriceTxt.text = "$ " + CentralPurchase.StockOfferNew.actualprice;
-        lSO_PriceTxt.text = CentralPurchase.StockOfferProduct == null ? "$ " + (CentralPurchase.StockOfferNew.price) : CentralPurchase.StockOfferProduct.metadata.localizedPriceString;
+        lSO_PriceTxt.text = CentralPurchase.StockOfferProduct == null ? "$ " + (CentralPurchase.StockOfferNew.price) : CentralPurchase.StockOfferProduct.price;
         CommanAnimations.instance.PopUpAnimation(lSO_Panel, lSO_Bg, lSO_PopUp, Vector3.one, true);
     }
 

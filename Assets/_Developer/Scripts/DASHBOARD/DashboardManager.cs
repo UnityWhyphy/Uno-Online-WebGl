@@ -757,7 +757,7 @@ public class DashboardManager : MonoBehaviour
                 {
                     dashOfferBtn[0].dashIpCoinTxt.text = (CentralPurchase.FirstTimeOffer != null) ? CentralPurchase.FirstTimeOffer.gold.ToString() : "";
                     OfferDialog.instance.wO_PriceTxt.text = dashOfferBtn[0].dashIpPriceTxt.text =
-                        CentralPurchase.FirstTimeProduct == null ? ("$ " + CentralPurchase.FirstTimeOffer.price) : CentralPurchase.FirstTimeProduct.metadata.localizedPriceString;
+                        CentralPurchase.FirstTimeProduct == null ? ("$ " + CentralPurchase.FirstTimeOffer.price) : CentralPurchase.FirstTimeProduct.price;
                 }
             }
 
@@ -773,13 +773,13 @@ public class DashboardManager : MonoBehaviour
                     {
                         dashOfferBtn[2].gameObject.SetActive(CentralPurchase.StockOfferNew.usestock < CentralPurchase.StockOfferNew.stock);
                         dashOfferBtn[2].dashIpPriceTxt.text = CentralPurchase.StockOfferProduct == null ?
-                            ("$ " + CentralPurchase.StockOfferNew.price) : CentralPurchase.StockOfferProduct.metadata.localizedPriceString;
+                            ("$ " + CentralPurchase.StockOfferNew.price) : CentralPurchase.StockOfferProduct.price;
                     }
 
                     dashOfferBtn[1].gameObject.SetActive(CentralPurchase.TimerOffeNew != null);
                     if (CentralPurchase.TimerOfferProduct != null)
                         dashOfferBtn[1].dashIpPriceTxt.text = CentralPurchase.TimerOfferProduct == null ?
-                            ("$ " + CentralPurchase.TimerOffeNew.price) : CentralPurchase.TimerOfferProduct.metadata.localizedPriceString;
+                            ("$ " + CentralPurchase.TimerOffeNew.price) : CentralPurchase.TimerOfferProduct.price;
                 }
             }
         }
