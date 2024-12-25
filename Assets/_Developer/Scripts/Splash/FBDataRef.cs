@@ -20,9 +20,10 @@ public class FBDataRef : MonoBehaviour
         PrefrenceManager.ULT = "FB";
         PrefrenceManager.PP = data["playerPic"];
         PrefrenceManager.DET = "WEBFB";
+        PrefrenceManager.FB_TOKEN = data["fb_token"];
 
         Logger.Print($"-================================FID: {PrefrenceManager.FID} |PN: {PrefrenceManager.PN}  |" +
-            $"ULT {PrefrenceManager.ULT} | DET: {PrefrenceManager.DET}  ");
+            $"ULT {PrefrenceManager.ULT} | DET: {PrefrenceManager.DET} | FB_TOKEN : { PrefrenceManager.FB_TOKEN }");
     }
 
     public void GetFBProductData(string fproduct)
@@ -35,15 +36,11 @@ public class FBDataRef : MonoBehaviour
             FbProduct fb = JsonConvert.DeserializeObject<FbProduct>(fPro[i].ToString());
             StorePanel.Instance.fbProduct.Add(fb);
 
-            Logger.Print($"{TAG} | GetFBProductData===> >> {i} | price: {fb.price}");
+            //Logger.Print($"{TAG} | GetFBProductData===> >> {i} | price: {fb.price}");
         }
 
         Logger.Print($"{TAG} |  StorePanel.Instance.fbProduct===> >> { StorePanel.Instance.fbProduct.Count}");
 
-        foreach (var product in StorePanel.Instance.fbProduct)
-        {
-            Logger.Print($"Product: {product.title}, Price: {product.priceAmount} {product.priceCurrencyCode}");
-        }
     }
 
     //purchase
@@ -71,9 +68,22 @@ public class FBDataRef : MonoBehaviour
             ["itemName"] = ""
         };
 
-        data["itemName"] = "golds";
+        //data["itemName"] = "golds";
         PrefrenceManager._purchaseNodeData = data.ToString();
-        EventHandler.HandlePaymentGold(data);
+        //EventHandler.HandlePaymentGold(data);
+
+        string item = purchaseJson["productID"];
+
+        if (item.Contains("gems"))
+        {
+            data["itemName"] = "gems";
+            EventHandler.HandlePaymentGems(data);
+        }
+        else
+        {
+            data["itemName"] = "golds";
+            EventHandler.HandlePaymentGold(data);
+        }
 
     }
 

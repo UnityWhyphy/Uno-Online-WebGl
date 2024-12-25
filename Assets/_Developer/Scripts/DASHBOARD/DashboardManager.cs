@@ -482,7 +482,7 @@ public class DashboardManager : MonoBehaviour
 
     IEnumerator ShowWhatsNewImages(int t = 1)
     {
-        Logger.Print($"ShowWhatsNewImages called");
+        Logger.Print($"ShowWhatsNewImages called : IsShowDailyBonus: {AppData.IsShowDailyBonus}");
         foreach (var wht in updateImg)
             wht.gameObject.SetActive(false);
         foreach (var pag in pagination)
@@ -504,6 +504,7 @@ public class DashboardManager : MonoBehaviour
 
     public void ShowAgainWhatsNewScreenClick()
     {
+        //AppData.IsShowDailyBonus = false;
         StartCoroutine(ShowWhatsNewImages(0));
     }
 
@@ -556,6 +557,7 @@ public class DashboardManager : MonoBehaviour
         tournamentBtn.gameObject.SetActive(AppData.configData["ISCUSTOMEMODE"].AsBool);
         customPlayBrn.gameObject.SetActive(AppData.configData["ISTournament"].AsBool);
 
+        Logger.Print($"SIGNUP Whats new: {AppData.UpdateNEwVesrion.Count} || { data["is_newupdate"]}");
         //whtsDashBtn.gameObject.SetActive(data["is_newupdate"] == 1l);
         whtsDashBtn.gameObject.SetActive(AppData.UpdateNEwVesrion.Count > 0 && data["is_newupdate"] == 1);
 

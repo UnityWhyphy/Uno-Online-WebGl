@@ -142,11 +142,6 @@ public class StorePanel : CentralPurchase
 
         CommanAnimations.instance.PopUpAnimation(purchansePanel, purchasePanelBG, purchasePanelPopUp, Vector3.one, true);
 
-        Logger.Print($"{TAG2} | ExternalCall consumePurchaseAsync | Token: {AppData.HPGTokan}");
-#if UNITY_WEBGL && !UNITY_EDITOR
-            Application.ExternalCall("consumePurchaseAsync", AppData.HPGTokan);
-#endif
-
         PurchaseData purchase = JsonConvert.DeserializeObject<PurchaseData>(data.ToString());
         Logger.Print(tag + " InitGold " + purchase.initgold + " free gold " + purchase.free_gold + " totalgems " + purchase.totalgems);
 

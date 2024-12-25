@@ -103,11 +103,11 @@ public class AdmobManager : MonoBehaviour
     {
         //remove ads purchase hoi to ads nai devani
 
-        //if (PrefrenceManager.PURCHASEADS == 1)
-        //{
-        //    PerformActionAfterInterCompleted();
-        //    return;
-        //}
+        if (PrefrenceManager.PURCHASEADS == 1)
+        {
+            PerformActionAfterInterCompleted();
+            return;
+        }
 
         //if (isInterstitialLoad && interstitialAd != null)
         //{
@@ -121,46 +121,47 @@ public class AdmobManager : MonoBehaviour
         //}
     }
 
- /*   private void RegisterEventHandlers(InterstitialAd ad, int i)
-    {
-        Logger.Print("Interstitial RegisterEventHandlers.");
-        ad.OnAdPaid += (AdValue adValue) =>
-        {
-        };
+    /*   private void RegisterEventHandlers(InterstitialAd ad, int i)
+       {
+           Logger.Print("Interstitial RegisterEventHandlers.");
+           ad.OnAdPaid += (AdValue adValue) =>
+           {
+           };
 
-        ad.OnAdImpressionRecorded += () =>
-        {
+           ad.OnAdImpressionRecorded += () =>
+           {
 
-        };
+           };
 
-        ad.OnAdClicked += () =>
-        {
+           ad.OnAdClicked += () =>
+           {
 
-        };
+           };
 
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-            Logger.Print("Interstitial ad full screen content opened.");
-            isInterstitialLoad = false;
-            interstitialAd = null;
-        };
+           ad.OnAdFullScreenContentOpened += () =>
+           {
+               Logger.Print("Interstitial ad full screen content opened.");
+               isInterstitialLoad = false;
+               interstitialAd = null;
+           };
 
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            Logger.Print(TAG + "Interstitial OnAdFullScreenContentClosed called ");
-            PerformActionAfterInterCompleted();
-        };
+           ad.OnAdFullScreenContentClosed += () =>
+           {
+               Logger.Print(TAG + "Interstitial OnAdFullScreenContentClosed called ");
+               PerformActionAfterInterCompleted();
+           };
 
-        // Raised when the ad failed to open full screen content.
-        ad.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            Logger.Print(TAG + " OnAdFullScreenContentFailed called " + error);
+           // Raised when the ad failed to open full screen content.
+           ad.OnAdFullScreenContentFailed += (AdError error) =>
+           {
+               Logger.Print(TAG + " OnAdFullScreenContentFailed called " + error);
 
-            if (i + 1 < AppData.interAdsId.Count)
-                LoadInterstitialAd(AppData.interAdsId[i + 1], i + 1);
-        };
-    }
- */
+               if (i + 1 < AppData.interAdsId.Count)
+                   LoadInterstitialAd(AppData.interAdsId[i + 1], i + 1);
+           };
+       }
+    */
+
     private void PerformActionAfterInterCompleted()
     {
         Logger.Print(TAG + "Inter Ad Fully Watched & Doing Further Action >> ");
@@ -462,12 +463,12 @@ public class AdmobManager : MonoBehaviour
     {
         Logger.Print(TAG + " ShowSplash called = " + PrefrenceManager.PURCHASEADS);
 
-        //if (PrefrenceManager.PURCHASEADS == 1)
-        //{
-        //    if (AppData.IsShowDailyBonus && !AppData.isVideoClose && AppData.isShownAdsFrom != 2)
-        //        EventHandler.MakeDailyBonus();
-        //    return;
-        //}
+        if (PrefrenceManager.PURCHASEADS == 1)
+        {
+            if (AppData.IsShowDailyBonus && !AppData.isVideoClose && AppData.isShownAdsFrom != 2)
+                EventHandler.MakeDailyBonus();
+            return;
+        }
 
         //Logger.Print($"{TAG} + Showing interstitial ad. {isSplashLoad} ");
         //if (isSplashLoad && splashAds != null)
@@ -484,40 +485,40 @@ public class AdmobManager : MonoBehaviour
         //}
     }
 
- /*   private void RegisterEventHandlersSplash(InterstitialAd ad)
-    {
-        ad.OnAdPaid += (AdValue adValue) =>
-        {
-        };
+    /*   private void RegisterEventHandlersSplash(InterstitialAd ad)
+       {
+           ad.OnAdPaid += (AdValue adValue) =>
+           {
+           };
 
-        ad.OnAdImpressionRecorded += () =>
-        {
+           ad.OnAdImpressionRecorded += () =>
+           {
 
-        };
+           };
 
-        ad.OnAdClicked += () =>
-        {
+           ad.OnAdClicked += () =>
+           {
 
-        };
+           };
 
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-        };
+           ad.OnAdFullScreenContentOpened += () =>
+           {
+           };
 
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            Logger.Print($"{TAG} OnAdFullScreenContentClosed called || AppData.IsShowDailyBonus = {!AppData.IsShowDailyBonus} | {AppData.isVideoClose}");
-            //daily bonus no call marvano
-            if (AppData.IsShowDailyBonus && !AppData.isVideoClose && AppData.isShownAdsFrom != 2)
-                EventHandler.MakeDailyBonus();
-        };
+           ad.OnAdFullScreenContentClosed += () =>
+           {
+               Logger.Print($"{TAG} OnAdFullScreenContentClosed called || AppData.IsShowDailyBonus = {!AppData.IsShowDailyBonus} | {AppData.isVideoClose}");
+               //daily bonus no call marvano
+               if (AppData.IsShowDailyBonus && !AppData.isVideoClose && AppData.isShownAdsFrom != 2)
+                   EventHandler.MakeDailyBonus();
+           };
 
-        // Raised when the ad failed to open full screen content.
-        ad.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            Logger.Print(TAG + " OnAdFullScreenContentFailed called " + error);
-        };
-    }*/
+           // Raised when the ad failed to open full screen content.
+           ad.OnAdFullScreenContentFailed += (AdError error) =>
+           {
+               Logger.Print(TAG + " OnAdFullScreenContentFailed called " + error);
+           };
+       }*/
     #endregion
 
     int currentAdTimer = 0;

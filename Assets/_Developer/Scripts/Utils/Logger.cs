@@ -4,7 +4,7 @@ using UnityEngine;
 public static class Logger
 {
     public static string TAG = ">>UNO ";
-    static bool isLog = true;
+    static bool isLog = false;
 
     public static void Print(string msg)
     {
